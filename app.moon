@@ -48,7 +48,7 @@ class extends lapis.Application
     				input type: "submit"
     	POST: =>
     		if @params.user and @params.password
-    			user = Users\create {
+    			user, errMsg = Users\create {
     				name: @params.user
     				password: @params.password
     			}
@@ -56,7 +56,7 @@ class extends lapis.Application
     				@session.id = user.id
     				return redirect_to: @url_for "index"
     			else
-    				return "Error." --this code should be unreachable
+    				return errMsg
     }
 
     [login: "/login"]: respond_to {
