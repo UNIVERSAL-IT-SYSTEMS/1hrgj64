@@ -25,12 +25,12 @@ class extends lapis.Application
     		ul ->
 	    		if @session.id
 	    			li ->
-	    				a href: @url_for "logout", "Log out!"
+	    				a href: @url_for("logout"), "Log out!"
 	    		else
 		    		li ->
-    		    		a href: @url_for "create_user", "Make an account."
+    		    		a href: @url_for("create_user"), "Make an account."
     				li ->
-    					a href: @url_for "login", "Log in!"
+    					a href: @url_for("login"), "Log in!"
 
     [create_user: "/create_user"]: respond_to {
     	GET: =>
