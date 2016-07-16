@@ -18,4 +18,4 @@ class extends lapis.Application
                 return { json: { status: "ignored non-master push" } }
 
     "/": =>
-        "Welcome to the jam."
+        return "Welcome to the jam."
