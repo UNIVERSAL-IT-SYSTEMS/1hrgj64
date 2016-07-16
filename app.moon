@@ -75,7 +75,7 @@ class extends lapis.Application
     				input type: "submit"
     	POST: =>
     		if @params.user and @params.password
-    			if user = Users\find name: @params.name
+    			if user = Users\find name: @params.user
     				if user.password == @params.password
     					@session.id = user.id
     		return redirect_to: @url_for "index"
