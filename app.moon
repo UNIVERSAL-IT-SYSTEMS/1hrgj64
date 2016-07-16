@@ -43,7 +43,7 @@ class extends lapis.Application
     				p "Username: "
     				input type: "text", name: "user"
     				p "Password: "
-    				input type: "text", name: "password"
+    				input type: "password", name: "password"
     				br!
     				input type: "submit"
     	POST: =>
@@ -54,6 +54,7 @@ class extends lapis.Application
     			}
     			if user
     				@session.id = user.id
+    				return redirect_to: @url_for "index"
     			else
     				return "Error." --this code should be unreachable
     }
@@ -69,7 +70,7 @@ class extends lapis.Application
     				p "Username: "
     				input type: "text", name: "user"
     				p "Password: "
-    				input type: "text", name: "password"
+    				input type: "password", name: "password"
     				br!
     				input type: "submit"
     	POST: =>
@@ -77,7 +78,7 @@ class extends lapis.Application
     			if user = Users\find name: @params.name
     				if user.password == @params.password
     					@session.id = user.id
-    					return redirect_to: @url_for "index"
+    		return redirect_to: @url_for "index"
     }
 
     [logout: "/logout"]: =>
