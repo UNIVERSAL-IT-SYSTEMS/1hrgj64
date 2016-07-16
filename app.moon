@@ -16,6 +16,3 @@ class extends lapis.Application
                 return { json: { status: "successful" } } -- yes, I know this doesn't actually check if it was successful yet
             else
                 return { json: { status: "ignored non-master push" } }
-
-    "/": =>
-        return "Welcome to the jam."
