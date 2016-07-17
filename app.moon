@@ -94,7 +94,7 @@ class extends lapis.Application
                     method: "POST"
                     enctype: "multipart/form-data"
                 }, ->
-                    textarea rows: "16", cols: "75", name: "code"
+                    textarea rows: "7", cols: "45", name: "code"
                     br!
                     input type: "submit"
         POST: =>
