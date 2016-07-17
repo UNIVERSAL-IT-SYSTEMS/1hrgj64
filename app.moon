@@ -108,7 +108,7 @@ class extends lapis.Application
             ok, result = pcall sandbox.run, @params.code, {quota: 100000, env: { :print }}
             @html ->
                 if ok
-                    pre style: "color:blue;", result
+                    pre style: "color:green;", result
                 else
                     pre style: "color:red;", result
                 pre out
