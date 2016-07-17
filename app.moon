@@ -88,13 +88,14 @@ class extends lapis.Application
 
     [execute: "/execute"]: respond_to {
         GET: =>
-            form {
-                action: "/execute"
-                method: "POST"
-                enctype: "multipart/form-data"
-            }, ->
-                textarea rows: "60", cols: "80", name: "code"
-                input type: "submit"
+            @html ->
+                form {
+                    action: "/execute"
+                    method: "POST"
+                    enctype: "multipart/form-data"
+                }, ->
+                    textarea rows: "60", cols: "80", name: "code"
+                    input type: "submit"
         POST: =>
             out = ""
             print = (...) ->
