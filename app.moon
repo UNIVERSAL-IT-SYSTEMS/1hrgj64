@@ -94,7 +94,7 @@ class extends lapis.Application
                     method: "POST"
                     enctype: "multipart/form-data"
                 }, ->
-                    textarea rows: "35", cols: "100", name: "code"
+                    textarea rows: "16", cols: "75", name: "code"
                     br!
                     input type: "submit"
         POST: =>
@@ -105,7 +105,10 @@ class extends lapis.Application
                     out ..= select n, ...
                 out ..= "\n"
 
-            ok, result = pcall sandbox.run, @params.code, {quota: 100000, env: { :print }}
+            lomeli = ->
+                error "Fuck off Lomeli!"
+
+            ok, result = pcall sandbox.run, @params.code, {quota: 100000, env: { :print :lomeli }}
             @html ->
                 if ok
                     pre style: "color:green;", result
