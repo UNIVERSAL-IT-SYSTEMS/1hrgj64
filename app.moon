@@ -88,7 +88,7 @@ class extends lapis.Application
 
     [execute: "/execute"]: respond_to {
         GET: =>
-            for {
+            form {
                 action: "/execute"
                 method: "POST"
                 enctype: "multipart/form-data"
