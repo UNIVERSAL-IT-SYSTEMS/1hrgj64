@@ -105,4 +105,5 @@ class extends lapis.Application
             ok, result = pcall sandbox.run, @params.code, {quota: 100000, env: { :print }}
             @html ->
                 pre result
+                pre out
     }
