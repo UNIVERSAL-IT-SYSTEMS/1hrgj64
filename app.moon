@@ -3,6 +3,7 @@ lapis = require "lapis"
 import respond_to, json_params from require "lapis.application"
 
 Users = require "models.Users"
+sandbox = require "lib.sandbox"
 
 class extends lapis.Application
 	[githook: "/githook"]: respond_to {
@@ -84,3 +85,23 @@ class extends lapis.Application
     [logout: "/logout"]: =>
     	@session.id = nil
     	return redirect_to: @url_for "index"
+
+    [execute: "/execute"]: respond_to {
+        GET: =>
+            for {
+                action: "/execute"
+                method: "POST"
+                enctype: "multipart/form-data"
+            }, ->
+                textarea rows: "60", cols: "80", name: "code"
+                input type: "submit"
+        POST: =>
+            out = ""
+            print = (...) ->
+                -- for every arg, put in out
+                for n = 1, select("#", ...)
+                    out ..= select n, ...
+            ok, result = pcall sandbox.run, @params.code, {quota: 100000, env: { :print }}
+            @html ->
+                pre result
+    }
