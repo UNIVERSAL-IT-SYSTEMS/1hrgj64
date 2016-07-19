@@ -10,5 +10,5 @@ config "production", ->
         password sql_password
         database "1hrgj64"
     port 9278
-    num_workers 3
+    num_workers 8
     code_cache "on"
