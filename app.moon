@@ -48,16 +48,15 @@ class extends lapis.Application
     				br!
     				input type: "submit"
     	POST: =>
-    		if @params.user and @params.password
-    			user, errMsg = Users\create {
-    				name: @params.user
-    				password: @params.password
-    			}
-    			if user
-    				@session.id = user.id
-    				return redirect_to: @url_for "index"
-    			else
-    				return errMsg
+			user, errMsg = Users\create {
+				name: @params.user
+				password: @params.password
+			}
+			if user
+				@session.id = user.id
+				return redirect_to: @url_for "index"
+			else
+				return errMsg
     }
 
     [login: "/login"]: respond_to {
@@ -75,10 +74,9 @@ class extends lapis.Application
     				br!
     				input type: "submit"
     	POST: =>
-    		if @params.user and @params.password
-    			if user = Users\find name: @params.user
-    				if user.password == @params.password
-    					@session.id = user.id
+			if user = Users\find name: @params.user
+				if user.password == @params.password
+					@session.id = user.id
     		return redirect_to: @url_for "index"
     }
 
