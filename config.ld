@@ -1,7 +1,6 @@
---file = {
---	"api/something.moon",
---	"api/cube.moon",
---}
+file = {
+	"api/cube.moon",
+}
 
 project = "1hrgj64 Cube API"
 description = "API for programming Cubes."
