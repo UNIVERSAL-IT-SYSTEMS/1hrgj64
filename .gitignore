@@ -1,5 +1,6 @@
 *.lua
 *_temp/
 logs/
+cube_api/
 secret.moon
 !lib/sandbox.lua

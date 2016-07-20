@@ -13,10 +13,11 @@ class extends lapis.Application
             if @params.ref == "refs/heads/master"
                 os.execute "echo \"Updating server...\" >> logs/updates.log"
                 os.execute "git pull origin >> logs/updates.log"
-                os.execute "moonc . >> logs/updates.log" -- NOTE this doesn't actually work, figure out correct stream to output to file
+                os.execute "moonc . 2>> logs/updates.log"
+                os.execute "ldoc . >> logs/updates.log"
                 os.execute "lapis migrate production >> logs/updates.log"
                 os.execute "lapis build production >> logs/updates.log"
-                return { json: { status: "successful" } } -- yes, I know this doesn't actually check if it was successful yet
+                return { json: { status: "successful" } } --TODO scan for actual success (exit codes?), return a server error or whatever for errors
             else
                 return { json: { status: "ignored non-master push" } }
     }
@@ -84,6 +85,7 @@ class extends lapis.Application
     	@session.id = nil
     	return redirect_to: @url_for "index"
 
+    --NOTE this is temporary
     [execute: "/execute"]: respond_to {
         GET: =>
             @html ->
