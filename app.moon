@@ -108,11 +108,12 @@ class extends lapis.Application
             lomeli = ->
                 error "Fuck off Lomeli!"
 
-            ok, result = pcall sandbox.run, @params.code, {quota: 2000, env: { :print, :lomeli }}
+            --ok, result = pcall sandbox.run, @params.code, {quota: 2000, env: { :print, :lomeli }}
             @html ->
-                if ok
-                    pre style: "color:green;", result
-                else
-                    pre style: "color:red;", result
-                pre out
+                p "Temporarily not allowing you guys to fuck up my server. Sorry. :P"
+                --if ok
+                --    pre style: "color:green;", result
+                --else
+                --    pre style: "color:red;", result
+                --pre out
     }
