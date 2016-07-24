@@ -12,3 +12,4 @@ config "production", ->
     port 9278
     num_workers 8
     code_cache "on"
+    githook true
