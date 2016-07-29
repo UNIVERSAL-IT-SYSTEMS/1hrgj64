@@ -2,5 +2,8 @@
 *_temp/
 logs/
 cube_api/
+nginx.conf.compiled
+1hrgj64.service
+dhparams.pem
 secret.moon
 !lib/sandbox.lua
